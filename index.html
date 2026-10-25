@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DryRun — Paper Coding Exam Trainer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-glow"></div>
+<header class="site-header">
+  <div class="logo"><span>DR</span></div>
+  <div>
+    <h1>DryRun</h1>
+    <p>Paper Coding Exam Trainer</p>
+  </div>
+  <span class="badge">MAKAUT · BCA Sem-1</span>
+</header>
+
+<main>
+  <!-- START -->
+  <section id="start-screen" class="hero">
+    <span class="eyebrow">✦ Train for the exam hall, not the IDE</span>
+    <h2>Predict the output.<br><span class="grad">No compiler. Just like the exam.</span></h2>
+    <p class="lead">In the exam hall there is no run button. DryRun trains the exact skill the paper tests — reading C code on paper and knowing what it prints.</p>
+
+    <div class="stats">
+      <div><strong>19</strong><span>Questions</span></div>
+      <div><strong>17</strong><span>Topics</span></div>
+      <div><strong>100%</strong><span>gcc-verified</span></div>
+    </div>
+
+    <div class="card start-card">
+      <label class="section-label">Choose a topic</label>
+      <div id="topics" class="chips"></div>
+      <button id="start-btn" class="btn-primary">Start Practice →</button>
+      <p class="tip">💡 <strong>Exam tip:</strong> always write the dry-run table in the paper — it earns step marks even when the final output is wrong.</p>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz-screen" hidden>
+    <div class="quiz-top">
+      <div>
+        <span id="progress" class="q-count">Q 1 / 19</span>
+        <div class="bar"><div id="bar-fill"></div></div>
+      </div>
+      <span id="score" class="score-pill">⭐ 0 · 0 marks</span>
+    </div>
+
+    <div class="card quiz-card" id="quiz-card">
+      <div class="meta">
+        <span id="q-topic" class="topic-pill"></span>
+        <span id="q-marks" class="marks-pill"></span>
+      </div>
+      <div class="code-head"><span>● ● ●</span><span>C · main.c</span></div>
+      <pre id="q-code"></pre>
+
+      <label class="section-label" for="answer">Your predicted output</label>
+      <input id="answer" type="text" placeholder="Type exactly what the program prints…" autocomplete="off">
+      <button id="check-btn" class="btn-primary">Check Answer ✓</button>
+
+      <div id="feedback" hidden></div>
+      <button id="next-btn" class="btn-ghost" hidden>Next Question →</button>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="result-screen" hidden>
+    <div class="card result-card">
+      <div id="ring" class="ring"><span id="ring-text"></span></div>
+      <h2>Practice complete 🎯</h2>
+      <p id="result-text"></p>
+      <p id="result-msg" class="result-msg"></p>
+      <button id="restart-btn" class="btn-primary">Practice Again</button>
+      <button id="change-topic-btn" class="btn-ghost">Change Topic</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Made by <strong>Aryan Kumar Shah</strong> · Answers verified with gcc, never guessed</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+[
+  {
+    "answer": "7",
+    "code": "#include <stdio.h>\nint main(){\n  int x = 5;\n  x++;\n  ++x;\n  printf(\"%d\", x);\n  return 0;\n}",
+    "dry_run": "x=5 -> x++ makes x=6 -> ++x makes x=7 -> print 7",
+    "id": 1,
+    "marks": 2,
+    "topic": "Operators",
+    "type": "predict-output",
+    "verified": "Compiled and run with gcc 13.3 - output: 7"
+  },
+  {
+    "answer": "1 2 4 5",
+    "code": "#include <stdio.h>\nint main(){\n  int i;\n  for(i=1; i<=5; i++){\n    if(i==3) continue;\n    printf(\"%d \", i);\n  }\n  return 0;\n}",
+    "dry_run": "i=1 print, i=2 print, i=3 continue (skip print), i=4 print, i=5 print, i=6 stop",
+    "id": 2,
+    "marks": 2,
+    "topic": "Loops / continue",
+    "type": "predict-output",
+    "verified": "Compiled and run with gcc 13.3 - output: 1 2 4 5"
+  },
+  {
+    "answer": "15 20",
+    "code": "#include <stdio.h>\nint main(){\n  int a=10, b=20;\n  int *p = &a;\n  *p = 15;\n  printf(\"%d %d\", a, b);\n  return 0;\n}",
+    "dry_run": "p points to a. *p=15 changes a itself to 15. b is untouched = 20",
+    "id": 3,
+    "marks": 2,
+    "topic": "Pointers",
+    "type": "predict-output",
+    "verified": "Compiled and run with gcc 13.3 - output: 15 20"
+  },
+  {
+    "answer": "1 2 3",
+    "code": "#include <stdio.h>\nint main(){\n  int i=0;\n  while(i<3){\n    printf(\"%d \", ++i);\n  }\n  return 0;\n}",
+    "dry_run": "Check 0<3: ++i=1 print. Check 1<3: ++i=2 print. Check 2<3: ++i=3 print. Check 3<3 false, stop",
+    "id": 4,
+    "marks": 2,
+    "topic": "Loops / pre-increment",
+    "type": "predict-output",
+    "verified": "Compiled and run with gcc 13.3 - output: 1 2 3"
+  },
+  {
+    "answer": "8",
+    "code": "#include <stdio.h>\nint fib(int n){\n  if(n<=1) return n;\n  return fib(n-1) + fib(n-2);\n}\nint main(){\n  printf(\"%d\", fib(6));\n  return 0;\n}",
+    "dry_run": "fib sequence: 0,1,1,2,3,5,8 - fib(6)=8. Draw the recursion tree in the exam for full marks",
+    "id": 5,
+    "marks": 5,
+    "topic": "Recursion",
+    "type": "predict-output",
+    "verified": "Compiled and run with gcc 13.3 - output: 8"
+  },
+  {
+    "answer": "6",
+    "code": "#include <stdio.h>\nint main(){\n  char s[] = \"MAKAUT\";\n  int i=0;\n  while(s[i] != '\\0') i++;\n  printf(\"%d\", i);\n  return 0;\n}",
+    "dry_run": "Loop counts M,A,K,A,U,T = 6 characters, stops at '\\0'",
+    "id": 6,
+    "marks": 2,
+    "topic": "Strings",
+    "type": "predict-output",
+    "verified": "Compiled and run with gcc 13.3 - output: 6"
+  },
+  {
+    "id": 7,
+    "topic": "Functions / Euclid's algorithm",
+    "type": "predict-output",
+    "marks": 3,
+    "code": "#include <stdio.h>\nint main(){\n  int a=48, b=18, t;\n  while(b!=0){ t=b; b=a%b; a=t; }\n  printf(\"%d\", a);\n  return 0;\n}",
+    "answer": "6",
+    "dry_run": "a=48,b=18 -> 48%18=12 so (18,12) -> 18%12=6 so (12,6) -> 12%6=0 so (6,0) -> b=0 stop, a=6 is the GCD",
+    "verified": "Compiled and run with gcc - output: 6"
+  },
+  {
+    "id": 8,
+    "topic": "Functions / GCD & LCM",
+    "type": "predict-output",
+    "marks": 3,
+    "code": "#include <stdio.h>\nint main(){\n  int a=48, b=18, x=a, y=b, t;\n  while(y!=0){ t=y; y=x%y; x=t; }\n  int gcd=x, lcm=(a*b)/gcd;\n  printf(\"GCD=%d LCM=%d\", gcd, lcm);\n  return 0;\n}",
+    "answer": "GCD=6 LCM=144",
+    "dry_run": "Same Euclid steps -> GCD=6. LCM = (48*18)/6 = 864/6 = 144",
+    "verified": "Compiled and run with gcc - output: GCD=6 LCM=144"
+  },
+  {
+    "id": 9,
+    "topic": "if-else ladder",
+    "type": "predict-output",
+    "marks": 2,
+    "code": "#include <stdio.h>\nint main(){\n  int a=12, b=25, c=18;\n  if(a>=b && a>=c) printf(\"%d is largest\", a);\n  else if(b>=a && b>=c) printf(\"%d is largest\", b);\n  else printf(\"%d is largest\", c);\n  return 0;\n}",
+    "answer": "25 is largest",
+    "dry_run": "12>=25 false, skip. 25>=12 && 25>=18 true -> print 25 is largest",
+    "verified": "Compiled and run with gcc - output: 25 is largest"
+  },
+  {
+    "id": 10,
+    "topic": "Nested loops / patterns",
+    "type": "predict-output",
+    "marks": 3,
+    "code": "#include <stdio.h>\nint main(){\n  int i, j;\n  for(i=1;i<=4;i++){ for(j=1;j<=i;j++) printf(\"%d\", j); printf(\"\\n\"); }\n  return 0;\n}",
+    "answer": "1 12 123 1234",
+    "dry_run": "Row i prints j=1..i: row1=1, row2=12, row3=123, row4=1234",
+    "verified": "Compiled and run with gcc - output: 1 / 12 / 123 / 1234 on 4 lines"
+  },
+  {
+    "id": 11,
+    "topic": "Nested loops / patterns",
+    "type": "predict-output",
+    "marks": 3,
+    "code": "#include <stdio.h>\nint main(){\n  int i, j;\n  for(i=1;i<=4;i++){ for(j=1;j<=i;j++) printf(\"*\"); printf(\"\\n\"); }\n  return 0;\n}",
+    "answer": "* ** *** ****",
+    "dry_run": "Row i prints i stars: *, **, ***, ****",
+    "verified": "Compiled and run with gcc - output: * / ** / *** / **** on 4 lines"
+  },
+  {
+    "id": 12,
+    "topic": "Nested loops / patterns",
+    "type": "predict-output",
+    "marks": 3,
+    "code": "#include <stdio.h>\nint main(){\n  int i, j;\n  for(i=1;i<=4;i++){ for(j=1;j<=i;j++) printf(\"%c\", 'A'+j-1); printf(\"\\n\"); }\n  return 0;\n}",
+    "answer": "A AB ABC ABCD",
+    "dry_run": "'A'+0='A', 'A'+1='B'... row i prints A..(A+i-1): A, AB, ABC, ABCD",
+    "verified": "Compiled and run with gcc - output: A / AB / ABC / ABCD on 4 lines"
+  },
+  {
+    "id": 13,
+    "topic": "Integer division",
+    "type": "predict-output",
+    "marks": 1,
+    "code": "#include <stdio.h>\nint main(){\n  printf(\"%d\", 5/2);\n  return 0;\n}",
+    "answer": "2",
+    "dry_run": "int/int = int, fraction dropped. 5/2 = 2 (NOT 2.5)",
+    "verified": "Compiled and run with gcc 13.3 - output: 2"
+  },
+  {
+    "id": 14,
+    "topic": "Char arithmetic",
+    "type": "predict-output",
+    "marks": 2,
+    "code": "#include <stdio.h>\nint main(){\n  printf(\"%c\", 'A'+2);\n  return 0;\n}",
+    "answer": "C",
+    "dry_run": "'A' is ASCII 65. 65+2=67. %c prints char for 67 = 'C'",
+    "verified": "Compiled and run with gcc 13.3 - output: C"
+  },
+  {
+    "id": 15,
+    "topic": "printf precision",
+    "type": "predict-output",
+    "marks": 2,
+    "code": "#include <stdio.h>\nint main(){\n  printf(\"%.2f\", 3.14159);\n  return 0;\n}",
+    "answer": "3.14",
+    "dry_run": "%.2f = round to 2 decimals. 3.14159 -> 3.14",
+    "verified": "Compiled and run with gcc 13.3 - output: 3.14"
+  },
+  {
+    "id": 16,
+    "topic": "Operator precedence",
+    "type": "predict-output",
+    "marks": 2,
+    "code": "#include <stdio.h>\nint main(){\n  printf(\"%d\", 2+3*4%3);\n  return 0;\n}",
+    "answer": "2",
+    "dry_run": "* and % first, left to right: 3*4=12, 12%3=0, then 2+0=2",
+    "verified": "Compiled and run with gcc 13.3 - output: 2"
+  },
+  {
+    "id": 17,
+    "topic": "Relational operators",
+    "type": "predict-output",
+    "marks": 1,
+    "code": "#include <stdio.h>\nint main(){\n  printf(\"%d\", 7>5);\n  return 0;\n}",
+    "answer": "1",
+    "dry_run": "Relational expressions return int: true = 1, false = 0",
+    "verified": "Compiled and run with gcc 13.3 - output: 1"
+  },
+  {
+    "id": 18,
+    "topic": "Float division",
+    "type": "predict-output",
+    "marks": 1,
+    "code": "#include <stdio.h>\nint main(){\n  printf(\"%f\", 5.0/2);\n  return 0;\n}",
+    "answer": "2.500000",
+    "dry_run": "5.0 makes it float division = 2.5. %f prints 6 decimals by default",
+    "verified": "Compiled and run with gcc 13.3 - output: 2.500000"
+  },
+  {
+    "id": 19,
+    "topic": "Char codes",
+    "type": "predict-output",
+    "marks": 2,
+    "code": "#include <stdio.h>\nint main(){\n  printf(\"%d\", 'a'-'A');\n  return 0;\n}",
+    "answer": "32",
+    "dry_run": "'a'=97, 'A'=65. 97-65=32 (the uppercase/lowercase gap)",
+    "verified": "Compiled and run with gcc 13.3 - output: 32"
+  }
+]
